@@ -1,0 +1,38 @@
+<h2>{data.header}</h2>
+<h3>{data.subheader}</h3>
+<div id="player_a" class="projekktor" style="width: 100%;"></div>
+
+
+<script src="typo3conf/ext/t3-projekktor/Resources/Public/Projekktor/projekktor-1.3.09.min.js?1436539301" type="text/javascript"></script>
+<script type="text/javascript">
+    <![CDATA[
+    $(document).ready(function() {
+
+        var player = 'player_a';
+        projekktor('#player_a', {
+
+                    controls: ]]>{data.controls}<![CDATA[,
+                    poster: ']]>{data.controls}'<![CDATA[,
+                    title: ']]>{data.header}'<![CDATA[,
+                    playerFlashMP4: 'typo3conf/ext/t3-projekktor/Resources/Public/Projekktor/swf/StrobeMediaPlayback/StrobeMediaPlayback.swf',
+                    playerFlashMP3: 'typo3conf/ext/t3-projekktor/Resources/Public/Projekktor/swf/StrobeMediaPlayback/StrobeMediaPlayback.swf',
+                    width: ]]>{data.width}<![CDATA[,
+                    height: ]]>{data.height}<![CDATA[,
+                    playlist: [
+                        {
+
+                            0: {src: "]]>{data.rtmp}<![CDATA[", streamerType: 'rtmp', type: "video/flv"},
+                            1: {src: "]]>{data.m3u}<![CDATA[", type: "application/x-mpegURL"}]]>,
+                        }
+                    ]
+                }, function(player) {} // on ready
+        );
+
+
+    });
+
+</script>
+
+
+
+

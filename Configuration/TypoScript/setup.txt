@@ -1,0 +1,21 @@
+tt_content.projekktor = FLUIDTEMPLATE
+tt_content.projekktor {
+    file = EXT:t3-projekktor/Resources/Private/Templates/Projekktor.html
+    variables {
+        previewImage = FILES
+        previewImage {
+            references {
+                table = tt_content
+                fieldName = image
+            }
+            renderObj = IMAGE
+            renderObj {
+                file.import.data = file:current:uid
+                file.treatIdAsReference = 1
+            }
+        }
+    }
+}
+
+page.includeCSS.projekktor = typo3conf/ext/t3-projekktor/Resources/Public/Projekktor/themes/maccaco/projekktor.style.css
+page.includeCSS.projekktor.media = screen
